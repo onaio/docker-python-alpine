@@ -5,7 +5,7 @@ USER root
 WORKDIR /code
 ADD requirements.txt requirements.txt
 RUN apk add --no-cache postgresql-libs && \
-    apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev && \
+    apk add --no-cache --virtual .build-deps g++ gcc musl-dev postgresql-dev && \
     pip install --no-cache-dir --upgrade pip virtualenv && \
     virtualenv /root/.venv && \
     /root/.venv/bin/pip install --no-cache-dir -r requirements.txt && \
